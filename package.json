@@ -1,0 +1,39 @@
+{
+  "name": "paSystemSharingServer-nodejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_PATH=./config:./app/controllers NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Planetary",
+    "Annihilation",
+    "System",
+    "Sharing"
+  ],
+  "author": "SvenBrnn",
+  "license": "GPL",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "compression": "^1.2.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^0.4.1",
+    "cookie-parser": "^1.3.3",
+    "cookie-session": "^1.1.0",
+    "crypto": "0.0.3",
+    "csurf": "^1.6.3",
+    "express": "^4.10.4",
+    "express-session": "^1.9.3",
+    "method-override": "^2.3.0",
+    "mongoose": "^3.8.20",
+    "multer": "^0.1.6",
+    "nodemon": "^1.2.1",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "underscore": "^1.7.0",
+    "view-helpers": "^0.1.5",
+    "winston": "^0.8.3"
+  }
+}

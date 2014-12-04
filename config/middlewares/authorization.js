@@ -25,5 +25,5 @@ exports.checkToken = function (req, res, next, token) {
 
     //Todo: implement user authentication later
 
-    return req.send({'status': false, 'message': 'invalide token'});
+    return res.send({'status': false, 'message': 'invalide token'});
 }

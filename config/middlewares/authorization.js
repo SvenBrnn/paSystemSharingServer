@@ -13,7 +13,7 @@ exports.checkNoTokenEnabled = function (req, res, next) {
     if(config.token.authType === 'none')
         return next();
 
-    return req.send({'status': false, 'message': 'invalide token'});
+    return res.send({'status': false, 'message': 'invalide token'});
 }
 
 exports.checkToken = function (req, res, next, token) {

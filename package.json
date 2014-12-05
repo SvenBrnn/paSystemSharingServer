@@ -26,6 +26,7 @@
     "csurf": "^1.6.3",
     "express": "^4.10.4",
     "express-session": "^1.9.3",
+    "forever": "^0.13.0",
     "method-override": "^2.3.0",
     "mongoose": "^3.8.20",
     "multer": "^0.1.6",

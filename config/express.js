@@ -15,7 +15,7 @@ var winston = require('winston');
 var helpers = require('view-helpers');
 var config = require('config');
 var pkg = require('../package.json');
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'local';
 
 /**
  * Expose
@@ -27,9 +27,9 @@ module.exports = function (app, passport) {
     }));
     // Static files middleware
     app.use(express.static(config.root + '/public'));
-    // Use winston on production
+    // Use winston on heroku
     var log;
-    if (env !== 'development') {
+    if (env !== 'local') {
         log = {
             stream: {
                 write: function (message, encoding) {

@@ -1,0 +1,1 @@
+web: NODE_PATH=./config:./app/controllers NODE_ENV=heroku ./node_modules/.bin/forever -m 5 server.js

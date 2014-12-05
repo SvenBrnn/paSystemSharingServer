@@ -6,7 +6,7 @@ var path = require('path');
 var env = {};
 var envFile = __dirname + '/env.json';
 // Read env.json file, if it exists, load the id's and secrets from that
-// Note that this is only in the development env
+// Note that this is only in the local env
 // it is not safe to store id's in files
 if (fs.existsSync(envFile)) {
     env = fs.readFileSync(envFile, 'utf-8');
@@ -55,7 +55,7 @@ module.exports = {
     },
     token: {
         //Auth type: 'none', 'user', 'useranddefault', 'default'
-        authType: 'none',
-        defaultToken: 'VMAudna9dfvna9v'
+        authType: 'default',
+        defaultToken: 'fc8e81b2c4555603fb77f37385306bcb'
     }
 };

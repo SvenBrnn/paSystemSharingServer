@@ -56,6 +56,6 @@ module.exports = {
     token: {
         //Auth type: 'none', 'user', 'useranddefault', 'default'
         authType: 'default',
-        defaultToken: 'fc8e81b2c4555603fb77f37385306bcb'
+        defaultToken: 'SOMETOKEN'
     }
 };

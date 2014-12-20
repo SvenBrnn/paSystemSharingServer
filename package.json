@@ -34,6 +34,7 @@
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
     "underscore": "^1.7.0",
+    "validator": "^3.26.0",
     "view-helpers": "^0.1.5",
     "winston": "^0.8.3"
   }

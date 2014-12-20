@@ -1,18 +1,50 @@
 var mongoose = require('mongoose');
 var System = mongoose.model('System');
 var _ = require('underscore');
+var v = require('validator');
 
 exports.searchSystems = function (req, res, next) {
     var limit = req.query.limit || 150;
     var skip = req.query.start || 0;
+    var name = req.query.name || "";
+    var creator = req.query.creator || "";
+    var minPlanets = req.query.minPlanets || 1;
+    var maxPlanets = req.query.maxPlanets || 16;
+    //var sort_field = req.query.sort_field || "system"; //for later
+   // var sort_direction = req.query.sort_direction == "DESC" ? 1 : 0;  //for later
     var requestTime = req.query.request_time;
-    if(requestTime == null || isNaN(requestTime)) {
+
+    //Validate Fields
+    if(!v.isInt(requestTime)
+        || !v.isInt(limit)
+        || !v.isInt(skip)
+        || !v.isInt(minPlanets)
+        || !v.isInt(maxPlanets)
+        ) {
         res.send("Invalid Request!");
         return;
     }
 
     //Get all Systems
-    System.find().select({system: 1, creator: 1}).skip(skip).limit(limit).exec(function (err, systems) {
+    var sys = System.find().select({system: 1, creator: 1});
+
+    //Filter
+    if(name != "") {
+        var regexname = new RegExp('.*'+name+'.*', 'i');
+        sys = sys.where('name').equals(regexname);
+    }
+
+    if(creator != "")
+    {
+        var regexcreator = new RegExp('.*'+name+'.*', 'i');
+        sys = sys.where('creator').equals(regexcreator);
+    }
+
+    //Min and max planet count
+    sys = sys.where('numPlanets').lte(maxPlanets);
+    sys = sys.where('numPlanets').gte(minPlanets);
+
+    sys.skip(skip).limit(limit).exec(function (err, systems) {
         if (err) {
             return next(err);
         }

@@ -66,7 +66,8 @@ exports.searchSystems = function (req, res, next) {
         var ret = {
             request_time: requestTime,
             total: systems.length,
-            systems: tmpSystems
+            systems: tmpSystems,
+            total: tmpSystems.length + 1
         }
 
         //Return found Systems

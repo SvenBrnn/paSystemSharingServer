@@ -5,7 +5,7 @@ var path = require('path');
  */
 module.exports = {
     //If you use mongohq this should be ok
-    db: process.env.MONGOHQ_URL,
+    db: process.env.MONGOLAB_URI,
 
     //Social login stuff - needed later
     facebook: {
